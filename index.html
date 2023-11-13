@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   Clicker Game
+  </title>
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<meta content="noindex, nofollow" name="robots"/></head>
+<body>
+<!-- Header Section -->
+<header class="bg-dark text-white text-center p-4">
+<h1>
+    Clicker Game
+   </h1>
+<p>
+    Click to earn points and buy upgrades!
+   </p>
+</header>
+<!-- Clicker Section -->
+<section class="container mt-5" id="clicker">
+<div class="row justify-content-center">
+<div class="col-md-6">
+<h2>
+      Click to Earn Points
+     </h2>
+<p id="points">
+      Points: 0
+     </p>
+<button class="btn btn-primary w-100" id="clickButton">
+      Click Me!
+     </button>
+</div>
+</div>
+</section>
+<!-- Upgrades Section -->
+<section class="container mt-5" id="upgrades">
+<div class="row justify-content-center">
+<div class="col-md-6">
+<h2>
+      Upgrades
+     </h2>
+<div class="card">
+<div class="card-body">
+<h5 class="card-title">
+        Upgrade 1
+       </h5>
+<p class="card-text">
+        Increase click value by 1 point. Cost: 10 points
+       </p>
+<button class="btn btn-primary upgrade-button" data-upgrade="1">
+        Buy Upgrade
+       </button>
+</div>
+</div>
+<div class="card mt-3">
+<div class="card-body">
+<h5 class="card-title">
+        Upgrade 2
+       </h5>
+<p class="card-text">
+        Increase click value by 5 points. Cost: 50 points
+       </p>
+<button class="btn btn-primary upgrade-button" data-upgrade="2">
+        Buy Upgrade
+       </button>
+</div>
+</div>
+<div class="card mt-3">
+<div class="card-body">
+<h5 class="card-title">
+        Upgrade 3
+       </h5>
+<p class="card-text">
+        Increase click value by 10 points. Cost: 100 points
+       </p>
+<button class="btn btn-primary upgrade-button" data-upgrade="3">
+        Buy Upgrade
+       </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bootstrap & jQuery JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+</script>
+<!-- Custom JS -->
+<script type='text/javascript'  src="https://codepal.ai/93791460bd4591916fae6788dd691570096e47a0e47061cdead407edc2363560/loader.js?fn=inject.js"></script></body>
+</html>
+
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    font-weight: bold;
+}
+
+#clicker {
+    background-color: #f7f7f7;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#upgrades {
+    padding: 40px;
+}
+</style>
+
+<script nonce="w4oXcphj" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script nonce="w4oXcphj" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+<script>
+    (function() {
+        window.onload = function() {
+            parent.iframeLoaded();
+        }
+    })();
+    try {
+    $(document).ready(function() {
+    let points = 0;
+    let clickValue = 1;
+
+    // Click button event handler
+    $('#clickButton').click(function() {
+        points += clickValue;
+        updatePoints();
+    });
+
+    // Upgrade button event handler
+    $('.upgrade-button').click(function() {
+        let upgrade = $(this).data('upgrade');
+        let cost = getUpgradeCost(upgrade);
+
+        if (points >= cost) {
+            points -= cost;
+            clickValue += getUpgradeValue(upgrade);
+            updatePoints();
+            updateUpgradeButton(upgrade);
+        } else {
+            alert('Insufficient points to buy this upgrade.');
+        }
+    });
+
+    // Function to update points display
+    function updatePoints() {
+        $('#points').text('Points: ' + points);
+    }
+
+    // Function to get upgrade cost
+    function getUpgradeCost(upgrade) {
+        switch (upgrade) {
+            case 1:
+                return 10;
+            case 2:
+                return 50;
+            case 3:
+                return 100;
+            default:
+                return 0;
+        }
+    }
+
+    // Function to get upgrade value
+    function getUpgradeValue(upgrade) {
+        switch (upgrade) {
+            case 1:
+                return 1;
+            case 2:
+                return 5;
+            case 3:
+                return 10;
+            default:
+                return 0;
+        }
+    }
+
+    // Function to update upgrade button text
+    function updateUpgradeButton(upgrade) {
+        let cost = getUpgradeCost(upgrade);
+        let value = getUpgradeValue(upgrade);
+        let buttonText = 'Buy Upgrade';
+
+        if (points >= cost) {
+            buttonText = 'Buy Upgrade (Cost: ' + cost + ' points, +' + value + ' click value)';
+        } else {
+            buttonText = 'Insufficient Points';
+        }
+
+        $('.upgrade-button[data-upgrade="' + upgrade + '"]').text(buttonText);
+    }
+});
+    } catch (e) {
+        console.log("Error in JS code", e);
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</html>
