@@ -2,4 +2,4 @@
 
 Math For School is also know as BlueSpeed Games.
 
-I have no idea what else to put here.
+Link to page: https://coolcheeseguy.github.io/mathforschool
