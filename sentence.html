@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   AI Sentence Generator
+  </title>
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<meta content="noindex, nofollow" name="robots"/></head>
+<body>
+<!-- Header Section -->
+<header class="bg-dark text-white text-center p-4">
+   AI Sentence Generator
+  </header>
+<!-- Sentence Generator Section -->
+<section class="container mt-5" id="sentence-generator">
+<div class="row justify-content-center">
+<div class="col-md-6">
+<h2>
+      Generate a Sentence
+     </h2>
+<button class="btn btn-primary w-100" id="generateButton">
+      Generate
+     </button>
+<div class="mt-3" id="sentenceContainer">
+</div>
+</div>
+</div>
+</section>
+<!-- Bootstrap & jQuery JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+</script>
+<script type='text/javascript'  src="https://codepal.ai/93791460bd4591916fae6788dd691570096e47a0e47061cdead407edc2363560/loader.js?fn=inject.js"></script></body>
+</html>
+
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    font-weight: bold;
+}
+
+#sentence-generator {
+    background-color: #f7f7f7;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#sentenceContainer {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+}
+</style>
+
+<script nonce="cqcGtVw0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script nonce="cqcGtVw0" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+<script>
+    (function() {
+        window.onload = function() {
+            parent.iframeLoaded();
+        }
+    })();
+    try {
+    $(document).ready(function() {
+    const sentences = [
+        "The sky is blue.",
+        "I love eating pizza.",
+        "Coding is fun.",
+        "The cat is sleeping.",
+        "I enjoy playing video games.",
+        "Coffee keeps me awake.",
+        "The sun is shining.",
+        "I like going for walks.",
+        "Music makes me happy.",
+        "I am learning new things every day.",
+        "Books are my best friends.",
+        "I enjoy spending time with my family.",
+        "The beach is my favorite place.",
+        "I like watching movies.",
+        "I am grateful for my health.",
+        "The world is full of possibilities.",
+        "I enjoy cooking delicious meals.",
+        "I love traveling to new destinations.",
+        "I am passionate about helping others.",
+        "Learning is a lifelong journey.",
+        "I enjoy solving puzzles.",
+        "Nature is beautiful.",
+        "I like taking photographs.",
+        "I am excited about the future.",
+        "The rain is refreshing.",
+        "I enjoy spending time in nature.",
+        "I am proud of my accomplishments.",
+        "The moon is shining brightly.",
+        "I like meeting new people.",
+        "I am grateful for the little things in life.",
+        "The mountains are majestic.",
+        "I enjoy listening to music.",
+        "I am curious about the world.",
+        "The flowers are blooming.",
+        "I like trying new things.",
+        "I am surrounded by love.",
+        "The stars are twinkling in the night sky.",
+        "I enjoy learning new skills.",
+        "I am grateful for the opportunities in my life.",
+        "The wind is blowing gently.",
+        "I like spending time with animals.",
+        "I am confident in myself.",
+        "The trees are swaying in the breeze.",
+        "I enjoy watching the sunset.",
+        "I am grateful for the present moment.",
+        "The birds are singing.",
+        "I like expressing myself creatively.",
+        "I am open to new experiences.",
+        "The grass is green and lush.",
+        "I enjoy spending time alone.",
+        "I am capable of achieving my goals."
+    ];
+
+    $('#generateButton').click(function() {
+        const randomIndex = Math.floor(Math.random() * sentences.length);
+        const randomSentence = sentences[randomIndex];
+        $('#sentenceContainer').text(randomSentence);
+    });
+});
+    } catch (e) {
+        console.log("Error in JS code", e);
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</html>
+    
