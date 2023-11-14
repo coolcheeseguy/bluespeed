@@ -5,20 +5,30 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>
-   Animated 3D Objects
+   3D Cube
   </title>
 <!-- Bootstrap CSS -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
 <!-- Custom CSS -->
 <meta content="noindex, nofollow" name="robots"/></head>
 <body>
-<!-- Animated 3D Objects -->
-<section id="objects">
-<div class="object">
+<!-- Cube Section -->
+<section class="container" id="cube">
+<div class="cube-container">
+<div class="cube">
+<div class="face front">
 </div>
-<div class="object">
+<div class="face back">
 </div>
-<div class="object">
+<div class="face left">
+</div>
+<div class="face right">
+</div>
+<div class="face top">
+</div>
+<div class="face bottom">
+</div>
+</div>
 </div>
 </section>
 <!-- Bootstrap & jQuery JS -->
@@ -33,37 +43,74 @@
 <style>
     body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: black;
 }
 
-#objects {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.object {
-    width: 200px;
-    height: 200px;
-    background-color: #007bff;
-    margin: 20px;
-    border-radius: 50%;
-    animation: rotate 3s infinite linear;
+.cube-container {
+    perspective: 800px;
 }
 
-@keyframes rotate {
+.cube {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(45deg) rotateY(45deg);
+    animation: spin 10s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ffffff;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 0.8;
+}
+
+.front {
+    transform: translateZ(100px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes spin {
     0% {
-        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        transform: rotateX(0deg) rotateY(0deg);
     }
     100% {
-        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        transform: rotateX(360deg) rotateY(360deg);
     }
 }
 </style>
 
-<script nonce="Qiu84QKt" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script nonce="Qiu84QKt" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+<script nonce="akNtVsly" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script nonce="akNtVsly" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
 <script>
     (function() {
         window.onload = function() {
