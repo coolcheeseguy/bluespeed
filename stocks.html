@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   Stock Market Simulator
+  </title>
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<meta content="noindex, nofollow" name="robots"/></head>
+<body>
+<!-- Header Section -->
+<header class="bg-dark text-white text-center p-4">
+<h1>
+    Stock Market Simulator
+   </h1>
+<p>
+    Buy stocks with fake money and track your portfolio
+   </p>
+</header>
+<!-- Stock Market Section -->
+<section class="container mt-5" id="stock-market">
+<div class="row">
+<div class="col-md-6">
+<h2>
+      Stocks
+     </h2>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>
+         Stock
+        </th>
+<th>
+         Price
+        </th>
+<th>
+         Buy
+        </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+         Stock 1
+        </td>
+<td>
+         $100
+        </td>
+<td>
+<button class="btn btn-primary btn-sm buy-stock" data-stock="stock1">
+          Buy
+         </button>
+</td>
+</tr>
+<tr>
+<td>
+         Stock 2
+        </td>
+<td>
+         $200
+        </td>
+<td>
+<button class="btn btn-primary btn-sm buy-stock" data-stock="stock2">
+          Buy
+         </button>
+</td>
+</tr>
+<tr>
+<td>
+         Stock 3
+        </td>
+<td>
+         $150
+        </td>
+<td>
+<button class="btn btn-primary btn-sm buy-stock" data-stock="stock3">
+          Buy
+         </button>
+</td>
+</tr>
+<tr>
+<td>
+         Stock 4
+        </td>
+<td>
+         $120
+        </td>
+<td>
+<button class="btn btn-primary btn-sm buy-stock" data-stock="stock4">
+          Buy
+         </button>
+</td>
+</tr>
+<tr>
+<td>
+         Stock 5
+        </td>
+<td>
+         $180
+        </td>
+<td>
+<button class="btn btn-primary btn-sm buy-stock" data-stock="stock5">
+          Buy
+         </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-md-6">
+<h2>
+      Portfolio
+     </h2>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>
+         Stock
+        </th>
+<th>
+         Quantity
+        </th>
+</tr>
+</thead>
+<tbody id="portfolio">
+<!-- Portfolio stocks will be dynamically added here -->
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Bootstrap & jQuery JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+</script>
+<script type='text/javascript'  src="https://codepal.ai/93791460bd4591916fae6788dd691570096e47a0e47061cdead407edc2363560/loader.js?fn=inject.js"></script></body>
+</html>
+
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    font-weight: bold;
+}
+
+#stock-market {
+    background-color: #f7f7f7;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#portfolio {
+    font-weight: bold;
+}
+</style>
+
+<script nonce="ydEzGb3K" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script nonce="ydEzGb3K" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+<script>
+    (function() {
+        window.onload = function() {
+            parent.iframeLoaded();
+        }
+    })();
+    try {
+    $(document).ready(function() {
+    // Initialize portfolio object
+    let portfolio = {};
+
+    // Buy stock event listener
+    $('.buy-stock').click(function() {
+        let stock = $(this).data('stock');
+        if (portfolio.hasOwnProperty(stock)) {
+            portfolio[stock]++;
+        } else {
+            portfolio[stock] = 1;
+        }
+        updatePortfolio();
+    });
+
+    // Update portfolio table
+    function updatePortfolio() {
+        let portfolioTable = $('#portfolio');
+        portfolioTable.empty();
+        for (let stock in portfolio) {
+            let quantity = portfolio[stock];
+            let row = `<tr><td>${stock}</td><td>${quantity}</td></tr>`;
+            portfolioTable.append(row);
+        }
+    }
+});
+    } catch (e) {
+        console.log("Error in JS code", e);
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</html>
+    
