@@ -1,0 +1,127 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   AI with Stupid Logic
+  </title>
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+<meta content="noindex, nofollow" name="robots"/></head>
+<body>
+<!-- Header Section -->
+<header class="bg-dark text-white text-center p-4">
+   AI with Custom Logic
+  </header>
+<!-- AI Chatbot Section -->
+<section class="container mt-5" id="ai-chatbot">
+<div class="row justify-content-center">
+<div class="col-md-6">
+<h2>
+      AI Chatbot
+     </h2>
+<div class="border p-3 mb-3" id="chatbox">
+</div>
+<form id="chatForm">
+<div class="form-group">
+<input class="form-control" id="userInput" placeholder="Type your message..." required="" type="text"/>
+</div>
+<button class="btn btn-primary w-100" type="submit">
+       Send
+      </button>
+</form>
+</div>
+</div>
+</section>
+<!-- Bootstrap & jQuery JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+</script>
+<script type='text/javascript'  src="https://codepal.ai/93791460bd4591916fae6788dd691570096e47a0e47061cdead407edc2363560/loader.js?fn=inject.js"></script></body>
+</html>
+
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    font-weight: bold;
+}
+
+#chatbox {
+    height: 300px;
+    overflow-y: scroll;
+    background-color: #f7f7f7;
+}
+
+#chatForm {
+    display: flex;
+}
+
+#userInput {
+    flex-grow: 1;
+}
+</style>
+
+<script nonce="CimNj9IF" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script nonce="CimNj9IF" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+<script>
+    (function() {
+        window.onload = function() {
+            parent.iframeLoaded();
+        }
+    })();
+    try {
+    $(document).ready(function() {
+    // Array of predefined responses
+    const responses = [
+        "Hello! How can I assist you today?",
+        "I'm here to help. What do you need?",
+        "Feel free to ask me anything.",
+        "I'm sorry, I don't have the answer to that.",
+        "Let me find that information for you.",
+        "Please wait a moment while I process your request."
+    ];
+
+    // Display a random greeting message
+    displayMessage(getRandomResponse());
+
+    $('#chatForm').submit(function(e) {
+        e.preventDefault();
+        const userInput = $('#userInput').val();
+        displayMessage(userInput);
+        $('#userInput').val('');
+        setTimeout(function() {
+            displayMessage(getRandomResponse());
+        }, 1000);
+    });
+
+    // Function to display a message in the chatbox
+    function displayMessage(message) {
+        const chatbox = $('#chatbox');
+        const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const formattedMessage = `<p><strong>${timestamp}:</strong> ${message}</p>`;
+        chatbox.append(formattedMessage);
+        chatbox.scrollTop(chatbox.prop('scrollHeight'));
+    }
+
+    // Function to get a random response from the array
+    function getRandomResponse() {
+        const randomIndex = Math.floor(Math.random() * responses.length);
+        return responses[randomIndex];
+    }
+});
+    } catch (e) {
+        console.log("Error in JS code", e);
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</html>
+    
