@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>perfectly normal</title>
+    <script>
+        function unblockMethod1(url) {
+            // Method 1: URL modification using a data URI
+            return "data:text/html,<meta http-equiv='refresh' content='0;url=" + encodeURI(url) + "'>";
+        }
+
+        function unblockMethod2(url) {
+            // Method 2: Encrypted tunneling using localStorage
+            localStorage.setItem("unblockedUrl", url);
+            return "https://example-proxy-site.com/";
+        }
+
+        function unblockMethod3(url) {
+            // Method 3: JavaScript-based redirection using a Blob
+            var blob = new Blob(["<html><meta http-equiv='refresh' content='0;url=" + encodeURI(url) + "'></html>"], {type: "text/html"});
+            return URL.createObjectURL(blob);
+        }
+
+        function unblockWebsite() {
+            var inputUrl = document.getElementById("url-input").value;
+            var selectedMethod = document.getElementById("method-select").value;
+
+            var unblockedUrl;
+
+            switch (selectedMethod) {
+                case "method1":
+                    unblockedUrl = unblockMethod1(inputUrl);
+                    break;
+                case "method2":
+                    unblockedUrl = unblockMethod2(inputUrl);
+                    break;
+                case "method3":
+                    unblockedUrl = unblockMethod3(inputUrl);
+                    break;
+                default:
+                    alert("Invalid method selected!");
+                    return;
+            }
+
+            if (unblockedUrl) {
+                window.open(unblockedUrl, "_blank");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>perfectly normal</h1>
+
+    <label for="url-input">Enter URL to normalize:</label>
+    <input type="text" id="url-input" placeholder="Enter URL" required>
+
+    <label for="method-select">Select normalization method:</label>
+    <select id="method-select">
+        <option value="method1">Method 1</option>
+        <option value="method2">Method 2</option>
+        <option value="method3">Method 3</option>
+    </select>
+
+    <button onclick="unblockWebsite()">Normalize</button>
+</body>
+</html>
