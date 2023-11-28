@@ -29,10 +29,11 @@ function passcheck() {
      instead of inputRef.value.length >= 6
   */
   const resultText = inputRef.value == "64admin" ? 'CORRECT' : 'ERROR';
+  const cool = inputRef.value
 
   resultRef.innerHTML = resultText;
 
-  if inputRef.value == "64admin" {
+  if cool == "64admin" {
   link.setAttribute("href", "admin.html");
   }
 
