@@ -11,9 +11,32 @@
     <h5>perfectly normal</h5>
     <h6>perfectly normal</h6>
     <br><br><br><br><br><br>
-    <form>
-    <input type="password">
-    <input type="submit">
-    </form>
+     <a id="link" href="cool3d.html">perfectly normal</a>
+    <div>
+  Password: 
+  <input id="password" type="text" />
+  <input id="Button1" type="button" value="Run" onclick="passcheck()" />
+</div>
+Result: <span id="result"/>
+<script>
+
+function passcheck() {
+  const resultRef = document.getElementById('result');
+  const inputRef = document.getElementById('password');
+  var link = document.getElementById("link");
+  /* You can pass any other condition 
+     for checking the validity of the password
+     instead of inputRef.value.length >= 6
+  */
+  const resultText = inputRef.value == "64admin" ? 'CORRECT' : 'ERROR';
+
+  resultRef.innerHTML = resultText;
+
+  if inputRef.value == "64admin" {
+  link.setAttribute("href", "admin.html");
+  }
+
+}
+</script>
 </body>
 </html>
