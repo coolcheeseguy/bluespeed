@@ -15,20 +15,16 @@
     <div>
   Password: 
   <input id="password" type="text" />
-  <input id="Button1" type="button" value="Run" onclick="passcheck()" />
+  <input id="Button1" type="button" value="Normalize" onclick="passcheck()" />
 </div>
 Result: <span id="result"/>
 <script>
 
 function passcheck() {
-  const resultRef = document.getElementById('result');
   const inputRef = document.getElementById('password');
   var link = document.getElementById("link");
     
-  const resultText = inputRef.value == "64admin" ? 'CORRECT' : 'ERROR';
   const cool = inputRef.value
-
-  resultRef.innerHTML = resultText;
 
   if cool == "64admin" {
     link.setAttribute("href", "admin.html");
