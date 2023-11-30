@@ -17,17 +17,16 @@
   <input id="password" type="text" />
   <input id="Button1" type="button" value="Normalize" onclick="passcheck()" />
 </div>
-Result: <span id="result"/>
 <script>
 
 function passcheck() {
   const inputRef = document.getElementById('password');
-  var link = document.getElementById("link");
+  var linker = document.getElementById("link");
     
   const cool = inputRef.value
 
   if cool == "64admin" {
-    link.setAttribute("href", "admin.html");
+    linker.setAttribute("href", "admin.html");
   }
 
 }
