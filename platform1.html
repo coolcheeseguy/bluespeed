@@ -121,7 +121,7 @@ function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw player
-    ctx.fillStyle = '#f44336';
+    ctx.fillStyle = '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
     ctx.fillRect(player.x, player.y, player.width, player.height);
 
     // Draw platforms
