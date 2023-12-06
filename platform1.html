@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   Platformer Game
+  </title>
+<meta content="noindex, nofollow" name="robots"/>
+<meta content="noindex, nofollow" name="robots"/></head>
+<body>
+<canvas height="600" id="gameCanvas" width="800">
+</canvas>
+<script type='text/javascript'  src="https://codepal.ai/93791460bd4591916fae6788dd691570096e47a0e47061cdead407edc2363560/loader.js?fn=inject.js"></script></body>
+</html>
+
+
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+canvas {
+    background-color: #f5f5f5;
+    display: block;
+    margin: 0 auto;
+}
+</style>
+
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+<script>
+    (function() {
+        window.onload = function() {
+            parent.iframeLoaded();
+        }
+    })();
+    try {
+    const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+// Player
+const player = {
+    x: 50,
+    y: 50,
+    width: 50,
+    height: 50,
+    speed: 5,
+    dx: 0,
+    dy: 0
+};
+
+// Platforms
+const platforms = [{
+    x: 0,
+    y: 550,
+    width: 850,
+    height: 50
+}, {
+    x: 400,
+    y: 400,
+    width: 200,
+    height: 20
+}, {
+    x: 700,
+    y: 300,
+    width: 200,
+    height: 20
+}];
+
+// Event Listeners
+document.addEventListener('keydown', handleKeyDown);
+document.addEventListener('keyup', handleKeyUp);
+
+// Keydown event handler
+function handleKeyDown(event) {
+    if (event.key === 'ArrowRight' || event.key === 'Right') {
+        player.dx = player.speed;
+    } else if (event.key === 'ArrowLeft' || event.key === 'Left') {
+        player.dx = -player.speed;
+    } else if ((event.key === 'ArrowUp' || event.key === 'Up') && player.y === canvas.height - player.height) {
+        player.dy = -player.speed * 2;
+    }
+}
+
+// Keyup event handler
+function handleKeyUp(event) {
+    if (
+        event.key === 'ArrowRight' ||
+        event.key === 'Right' ||
+        event.key === 'ArrowLeft' ||
+        event.key === 'Left'
+    ) {
+        player.dx = 0;
+    }
+}
+
+// Update function
+function update() {
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw player
+    ctx.fillStyle = '#f44336';
+    ctx.fillRect(player.x, player.y, player.width, player.height);
+
+    // Draw platforms
+    ctx.fillStyle = '#2196f3';
+    platforms.forEach(platform => {
+        ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
+    });
+
+    // Move player
+    player.x += player.dx;
+    player.y += player.dy;
+
+    // Handle collision with platforms
+    platforms.forEach(platform => {
+        if (
+            player.x < platform.x + platform.width &&
+            player.x + player.width > platform.x &&
+            player.y < platform.y + platform.height &&
+            player.y + player.height > platform.y
+        ) {
+            player.dy = 0;
+            player.y = platform.y - player.height;
+        }
+    });
+
+    // Apply gravity
+    if (player.y < canvas.height - player.height) {
+        player.dy += 0.2;
+    } else {
+        player.dy = 0;
+        player.y = canvas.height - player.height;
+    }
+
+    // Request animation frame
+    requestAnimationFrame(update);
+}
+
+// Start the game
+update();
+    } catch (e) {
+        console.log("Error in JS code", e);
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</html>
