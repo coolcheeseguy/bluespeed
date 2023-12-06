@@ -10,8 +10,10 @@
 <meta content="noindex, nofollow" name="robots"/>
 <meta content="noindex, nofollow" name="robots"/></head>
 <body>
-<canvas height="700" id="gameCanvas" width="1000">
+<div style="max-height: 256px;max-width:256px;overflow: scroll;">
+<canvas height="3000" id="gameCanvas" width="1000">
 </canvas>
+</div>
 <script type='text/javascript'  src="https://codepal.ai/93791460bd4591916fae6788dd691570096e47a0e47061cdead407edc2363560/loader.js?fn=inject.js"></script></body>
 </html>
 
@@ -56,8 +58,8 @@ const player = {
 // Platforms
 const platforms = [{
     x: 0,
-    y: 700,
-    width: 180,
+    y: 3000,
+    width: 200,
     height: 80
 }, {
     x: 400,
